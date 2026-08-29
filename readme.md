@@ -8,18 +8,24 @@ El proyecto está diseñado como una guía estratégica y de apoyo visual para l
 
 ## 🐍 Scripts de Python
 
-| Script | Qué hace | Cómo se ejecuta |
-| --- | --- | --- |
-| [`combinar_csv.py`](combinar_csv.py) | Une varios CSV con el mismo encabezado en uno solo (por defecto lee `data/*.csv` y escribe `data/terremotos_combinados.csv`). Se usó para producir los CSV de `terremotos_*` a partir de las descargas crudas del catálogo. | `py combinar_csv.py --carpeta <origen> --salida <destino.csv>` |
-| [`analizar_sismos.py`](analizar_sismos.py) | Lee todos los `data/terremotos_*.csv`, agrupa por año y rango de magnitud (cada 1.0, empezando en 2,5) y guarda la tabla resultante en `data/sismos_por_anio_intensidad.csv`. | `py analizar_sismos.py` |
-| [`inicio.py`](inicio.py) | **Punto de entrada recomendado.** App multipágina de Streamlit: página de inicio con accesos directos, más los reportes 1 y 2 en el menú lateral. | `py -m streamlit run inicio.py` |
-| [`reporte_sismos.py`](reporte_sismos.py) | **Reporte 1** (también funciona como app independiente): carga todos los `data/terremotos_*.csv`, permite filtrar por fecha y magnitud mínima, y muestra métricas, gráficos temporales y un mapa (puntos o calor) con pydeck. | `py -m streamlit run reporte_sismos.py` |
-| [`reporte_cubos_3d.py`](reporte_cubos_3d.py) | **Reporte 2** (también funciona como app independiente): grafica los sismos de México, Perú y Venezuela como cubos 3D con matplotlib (X = longitud, Y = latitud, Z = profundidad), cada uno con su mapa correspondiente debajo. La selección de cada país es una caja delimitadora aproximada, no su contorno político exacto. | `py -m streamlit run reporte_cubos_3d.py` |
+| Script                                       | Qué hace                                                                                                                                                                                                                                                                                                                       | Cómo se ejecuta                                                |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- |
+| [`combinar_csv.py`](combinar_csv.py)         | Une varios CSV con el mismo encabezado en uno solo (por defecto lee `data/*.csv` y escribe `data/terremotos_combinados.csv`). Se usó para producir los CSV de `terremotos_*` a partir de las descargas crudas del catálogo.                                                                                                    | `py combinar_csv.py --carpeta <origen> --salida <destino.csv>` |
+| [`analizar_sismos.py`](analizar_sismos.py)   | Lee todos los `data/terremotos_*.csv`, agrupa por año y rango de magnitud (cada 1.0, empezando en 2,5) y guarda la tabla resultante en `data/sismos_por_anio_intensidad.csv`.                                                                                                                                                  | `py analizar_sismos.py`                                        |
+| [`inicio.py`](inicio.py)                     | **Punto de entrada recomendado.** App multipágina de Streamlit: página de inicio con accesos directos, más los reportes 1 y 2 en el menú lateral.                                                                                                                                                                              | `py -m streamlit run inicio.py`                                |
+| [`reporte_sismos.py`](reporte_sismos.py)     | **Reporte 1** (también funciona como app independiente): carga todos los `data/terremotos_*.csv`, permite filtrar por fecha y magnitud mínima, y muestra métricas, gráficos temporales y un mapa (puntos o calor) con pydeck.                                                                                                  | `py -m streamlit run reporte_sismos.py`                        |
+| [`reporte_cubos_3d.py`](reporte_cubos_3d.py) | **Reporte 2** (también funciona como app independiente): grafica los sismos de México, Perú y Venezuela como cubos 3D con matplotlib (X = longitud, Y = latitud, Z = profundidad), cada uno con su mapa correspondiente debajo. La selección de cada país es una caja delimitadora aproximada, no su contorno político exacto. | `py -m streamlit run reporte_cubos_3d.py`                      |
 
 Instalación de dependencias (ver [`requirements.txt`](requirements.txt)):
 
 ```sh
 py -m pip install -r requirements.txt
+```
+
+Luego para ejecutar steamlit
+
+```sh
+steamlit run inicio.py
 ```
 
 ---
